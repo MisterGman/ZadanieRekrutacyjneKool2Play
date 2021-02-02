@@ -11,7 +11,7 @@
                     "id": "4e9046f9-1a9b-4752-865d-5b95b6f9b3d7",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press(behavior=2)"
                 },
                 {
                     "name": "Aiming",
@@ -35,7 +35,15 @@
                     "id": "8cd5c218-0bd8-4db4-91bb-03100ece4b8c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "ShotgunShoot",
+                    "type": "Button",
+                    "id": "a1624313-815c-44a8-920d-d42b4089d2e4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
                 }
             ],
             "bindings": [
@@ -107,17 +115,6 @@
                 },
                 {
                     "name": "",
-                    "id": "287e5c70-18f5-41a3-a74f-bd472f468fc2",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardInput",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "72328766-de35-4164-9ffd-785ce2704863",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
@@ -179,6 +176,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Aiming",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "792329f4-c287-4603-b9a5-9eea21167822",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardInput",
+                    "action": "ShotgunShoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b2dc0b81-85d3-4d75-a931-b1f2a1ec39d0",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ShotgunShoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

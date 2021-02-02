@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/PlayerActions.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Input/PlayerActions.inputactions'
 
 using System;
 using System.Collections;
@@ -24,7 +24,7 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                     ""id"": ""4e9046f9-1a9b-4752-865d-5b95b6f9b3d7"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press(behavior=2)""
                 },
                 {
                     ""name"": ""Aiming"",
@@ -48,7 +48,15 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                     ""id"": ""8cd5c218-0bd8-4db4-91bb-03100ece4b8c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press(behavior=2)""
+                },
+                {
+                    ""name"": ""ShotgunShoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""a1624313-815c-44a8-920d-d42b4089d2e4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
                 }
             ],
             ""bindings"": [
@@ -120,17 +128,6 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""287e5c70-18f5-41a3-a74f-bd472f468fc2"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardInput"",
-                    ""action"": ""Dash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""72328766-de35-4164-9ffd-785ce2704863"",
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
@@ -194,6 +191,28 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                     ""action"": ""Aiming"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""792329f4-c287-4603-b9a5-9eea21167822"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardInput"",
+                    ""action"": ""ShotgunShoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b2dc0b81-85d3-4d75-a931-b1f2a1ec39d0"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ShotgunShoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -234,6 +253,7 @@ public class @PlayerActions : IInputActionCollection, IDisposable
         m_PlayerMovement_Aiming = m_PlayerMovement.FindAction("Aiming", throwIfNotFound: true);
         m_PlayerMovement_Dash = m_PlayerMovement.FindAction("Dash", throwIfNotFound: true);
         m_PlayerMovement_Shoot = m_PlayerMovement.FindAction("Shoot", throwIfNotFound: true);
+        m_PlayerMovement_ShotgunShoot = m_PlayerMovement.FindAction("ShotgunShoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -287,6 +307,7 @@ public class @PlayerActions : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerMovement_Aiming;
     private readonly InputAction m_PlayerMovement_Dash;
     private readonly InputAction m_PlayerMovement_Shoot;
+    private readonly InputAction m_PlayerMovement_ShotgunShoot;
     public struct PlayerMovementActions
     {
         private @PlayerActions m_Wrapper;
@@ -295,6 +316,7 @@ public class @PlayerActions : IInputActionCollection, IDisposable
         public InputAction @Aiming => m_Wrapper.m_PlayerMovement_Aiming;
         public InputAction @Dash => m_Wrapper.m_PlayerMovement_Dash;
         public InputAction @Shoot => m_Wrapper.m_PlayerMovement_Shoot;
+        public InputAction @ShotgunShoot => m_Wrapper.m_PlayerMovement_ShotgunShoot;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -316,6 +338,9 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                 @Shoot.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnShoot;
+                @ShotgunShoot.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnShotgunShoot;
+                @ShotgunShoot.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnShotgunShoot;
+                @ShotgunShoot.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnShotgunShoot;
             }
             m_Wrapper.m_PlayerMovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -332,6 +357,9 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @ShotgunShoot.started += instance.OnShotgunShoot;
+                @ShotgunShoot.performed += instance.OnShotgunShoot;
+                @ShotgunShoot.canceled += instance.OnShotgunShoot;
             }
         }
     }
@@ -360,5 +388,6 @@ public class @PlayerActions : IInputActionCollection, IDisposable
         void OnAiming(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnShotgunShoot(InputAction.CallbackContext context);
     }
 }
